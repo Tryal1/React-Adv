@@ -6,6 +6,7 @@ import logo from "../logo.svg";
 
 export const Navigation = () => {
   return (
+    // cuando tara en cargar pone el loading
     <Suspense fallback={<span>Loading...</span>}>
       <BrowserRouter>
         <div className="main-layout">
