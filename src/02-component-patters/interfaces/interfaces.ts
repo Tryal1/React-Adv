@@ -1,9 +1,13 @@
-import { ReactElement } from "react";
+import { Props as ProductButtonProps} from '../components/ProductButton';
+import { Props as ProductCardProps, } from '../components/ProductCard';
+import { Props as ProductImageProps} from '../components/ProductImage';
+import { Props as ProductTitleProps} from "../components/ProductTitle";
 
-export interface ProductCardProps {
-  product: Product;
-  children?: ReactElement | ReactElement[];
-}
+// importamos las propiedades de todo los componentes por que si tenemos varios componenetes
+// no tenemos que modificar cada uno
+
+// tambien importamos las props de cada componente para asi cada vez que
+// agregamos unaprop no la tengamos que modificar
 
 export interface Product {
   id: string;
@@ -17,9 +21,12 @@ export interface ProductContextProps {
   product: Product;
 }
 
+// aca declaramos las importaciones de cada uno product
+// ejemplo titulo importamos las propiedades del componentes
+// 
 export interface ProductCardHOCProps {
   ({ children, product }: ProductCardProps ):JSX.Element,
-  Title: ({ title }: { title?: string }) => JSX.Element,
-  Image: ({ img }: { img?: string }) => JSX.Element,
-  Buttons: () => JSX.Element
+  Title: (Props:ProductTitleProps) => JSX.Element,
+  Image: (Props: ProductImageProps) => JSX.Element,
+  Buttons: (Props:ProductButtonProps) => JSX.Element
 }
