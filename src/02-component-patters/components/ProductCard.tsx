@@ -1,34 +1,29 @@
-import { useProduct } from "../hooks/useProducts";
-import { createContext } from "react";
-import { ProductContextProps, ProductCardProps } from "../interfaces/interfaces";
-import styles from "../styles/styles.module.css";
-import { ProductTitle } from './ProductTitle';
-import { ProductImage } from "./ProductImage";
+import { createContext } from 'react';
+import { useProduct } from '../hooks/useProducts';
+import { ProductContextProps, ProductCardProps } from '../interfaces/interfaces';
+
+import styles from '../styles/styles.module.css'
 import { ProductButton } from './ProductButton';
-
-
+import { ProductImage } from './ProductImage';
+import { ProductTitle } from './ProductTitle';
 
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
 
-export const ProductCard = ({ children, product }: ProductCardProps) => {
-  const { counter, increasBy } = useProduct();
+export const ProductCard = ({ children, product }: ProductCardProps ) => {
 
-  return (
-    <Provider value={{ counter, increasBy, product }}>
-      <div className={styles.productCard}>
-        {children}
-        {/* <ProductImage />
+    const { counter, increasBy } = useProduct();
 
-      <ProductTitle title={product.title} />
-
-      <ProductButton counter={counter} increasBy={increasBy}/> */}
-      </div>
-    </Provider>
-  );
-};
-
-ProductCard.Title = ProductTitle;
-ProductCard.Image = ProductImage;
-ProductCard.Button = ProductButton;
+    return (
+        <Provider value={{
+            counter,
+            increasBy,
+            product
+        }}>
+            <div className={ styles.productCard }>
+                { children }
+            </div>
+        </Provider>
+    )
+}
