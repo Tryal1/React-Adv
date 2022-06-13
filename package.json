@@ -17,6 +17,11 @@
     "typescript": "^4.7.3",
     "web-vitals": "^2.1.4"
   },
+  "repository": {
+    "url": "https://github.com/Tryal1/tc-product-card",
+    "type": "git"
+  },
+  "homepage": "",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
